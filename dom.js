@@ -2,7 +2,6 @@ let headerTitle = document.getElementById('header-title')
 let items = document.getElementsByClassName('list-group-item')
 
 let input = document.querySelector('input')
-input.value = 'Add List Items'
 
 let submit = document.querySelector('input[type="submit"]')
 submit.value = 'SUBMIT'
@@ -18,6 +17,23 @@ for(let i = 0; i < even.length; i++) {
     even[i].style.backgroundColor = "#adb5bd"
 }
 
-let itemList = document.querySelector('#items')
-// parentNode
-console.log(itemList.parentNode)
+////////////////////////////////////////////////////////////
+let itemInput = document.querySelector('input[type="text"]')
+let form = document.querySelector('form')
+let select = document.querySelector('select');
+
+itemInput.addEventListener('keydown', runEvent)
+itemInput.addEventListener('keyup', runEvent)
+
+let button = document.getElementById('button').addEventListener('click', runEvent)
+
+function runEvent(event) {
+    event.preventDefault()
+    console.log('EVENT TYPE: '+ event.type)
+    console.log(event.target.value)
+}
+
+select.addEventListener('change', runEvent)
+select.addEventListener('input', runEvent)
+
+form.addEventListener('submit', runEvent)
